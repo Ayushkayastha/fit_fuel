@@ -1,6 +1,8 @@
 import 'package:fit_fuel/config/route/paths.dart';
 import 'package:fit_fuel/config/route/route_model.dart';
 import 'package:fit_fuel/features/landing/presentation/landing_page.dart';
+import 'package:fit_fuel/features/onboarding/presentation/pages/onboarding_page.dart';
+import 'package:fit_fuel/features/splash/presentation/splash_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -19,15 +21,29 @@ import '../error_screen.dart';
 class AppRouter {
   static final key = GlobalKey<NavigatorState>();
   static final router = GoRouter(
-    initialLocation: Paths.landingPageRoute.path,
+    initialLocation: Paths.splashPageRoute.path,
     navigatorKey: key,
     routes: [
+      GoRoute(
+        path: Paths.splashPageRoute.path,
+        name: Paths.splashPageRoute.routeName,
+        pageBuilder: (context, state) => FadeTransitionPage(
+            key: state.pageKey,
+            child: SplashPage()),
+      ),
       GoRoute(
         path: Paths.landingPageRoute.path,
         name: Paths.landingPageRoute.routeName,
         pageBuilder: (context, state) => FadeTransitionPage(
             key: state.pageKey,
             child: LandingPage()),
+      ),
+      GoRoute(
+        path: Paths.onboardingaPageRoute.path,
+        name: Paths.onboardingaPageRoute.routeName,
+        pageBuilder: (context, state) => FadeTransitionPage(
+            key: state.pageKey,
+            child: OnboardingPage()),
       ),
       GoRoute(
           path:Paths.breakfastpageRoute.path,

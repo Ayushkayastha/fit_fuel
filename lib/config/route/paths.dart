@@ -3,8 +3,14 @@ import 'package:fit_fuel/config/route/route_model.dart';
 /// [Paths] list of all routes
 class Paths {
 
+  static final RouteModel splashPageRoute =
+  RouteModel(routeName: 'splashPageRoute', path: '/splashPageRoute',);
+
   static final RouteModel landingPageRoute = 
   RouteModel(routeName: 'landingPageRoute', path: '/landingPageRoute',);
+
+  static final RouteModel onboardingaPageRoute =
+  RouteModel(routeName: 'onboardingaPageRoute', path: '/onboardingaPageRoute',);
   
   static final RouteModel breakfastpageRoute =
   RouteModel(routeName: 'breakfastpage', path: '/breakfastpage');
