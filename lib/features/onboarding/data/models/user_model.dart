@@ -14,12 +14,16 @@ class UserModel {
   final String gender;
 
   @HiveField(3)
-  final double bmi;
+  final double height;
+
+  @HiveField(4)
+  final double weight;
 
   UserModel({
     required this.name,
     required this.age,
     required this.gender,
-    required this.bmi,
+    required this.height,
+    required this.weight,
   });
 }

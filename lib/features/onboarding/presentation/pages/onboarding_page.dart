@@ -17,7 +17,8 @@ class OnboardingPage extends ConsumerStatefulWidget {
 class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   final nameController = TextEditingController();
   final ageController = TextEditingController();
-  final bmiController = TextEditingController();
+  final heightController = TextEditingController();
+  final weightController = TextEditingController();
   String gender = 'Male';
 
   @override
@@ -45,8 +46,13 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
               onChanged: (val) => setState(() => gender = val!),
             ),
             TextField(
-              controller: bmiController,
-              decoration: const InputDecoration(labelText: 'BMI'),
+              controller: heightController,
+              decoration: const InputDecoration(labelText: 'height'),
+              keyboardType: TextInputType.number,
+            ),
+            TextField(
+              controller: weightController,
+              decoration: const InputDecoration(labelText: 'weight'),
               keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 20),
@@ -56,7 +62,8 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                   name: nameController.text,
                   age: int.parse(ageController.text),
                   gender: gender,
-                  bmi: double.parse(bmiController.text),
+                  height: double.parse(heightController.text),
+                  weight: double.parse(weightController.text),
                 );
                 await ref.read(saveUserProvider)(user);
                context.go(Paths.landingPageRoute.path);

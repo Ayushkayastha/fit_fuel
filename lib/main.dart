@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'features/calorie/data/hive/date_log_model.dart';
 import 'features/calorie/data/hive/food_entry_model.dart';
+import 'features/home/step_counter/data/step_counter_local_data_source.dart';
 import 'features/onboarding/data/models/user_model.dart';
 import 'features/onboarding/presentation/provider/user_provider.dart'; // if needed
 
@@ -19,6 +20,8 @@ Future<void> main() async {
 
   await Hive.openBox<DateLog>('calorieLogs');
   final userBox = await Hive.openBox<UserModel>('userBox');
+  await Hive.openBox<int>(StepCounterLocalDataSourceImpl.boxName);
+
 
   runApp(
     ProviderScope(

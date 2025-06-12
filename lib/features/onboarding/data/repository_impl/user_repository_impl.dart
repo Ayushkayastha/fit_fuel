@@ -14,7 +14,8 @@ class UserRepositoryImpl implements UserRepository {
       name: user.name,
       age: user.age,
       gender: user.gender,
-      bmi: user.bmi,
+      height: user.height,
+      weight: user.weight,
     );
     await userBox.put('user', model);
   }
@@ -27,7 +28,8 @@ class UserRepositoryImpl implements UserRepository {
       name: model.name,
       age: model.age,
       gender: model.gender,
-      bmi: model.bmi,
+      height: model.height,
+      weight: model.weight,
     );
   }
 }
