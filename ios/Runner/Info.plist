@@ -57,5 +57,9 @@
     <array>
         <string>processing</string>
     </array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+      <string>This app uses your location to track running distance and speed.</string>
+    <key>NSLocalNetworkUsageDescription</key>
+      <string>This app needs to open a local network port for the Flutter debug service.</string>
 </dict>
 </plist>

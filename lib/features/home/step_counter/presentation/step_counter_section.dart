@@ -72,7 +72,7 @@ class StepCounterSection extends ConsumerWidget {
               width: 100,
               color: Colors.deepOrangeAccent,
               child: Text(
-                'BMR =${bmrValue}'
+                  'BMR =${bmrValue}'
               ),
             ),
             Container(

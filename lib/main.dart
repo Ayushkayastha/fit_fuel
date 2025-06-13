@@ -1,6 +1,7 @@
 import 'package:fit_fuel/config/route/route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'features/calorie/data/hive/date_log_model.dart';
@@ -22,6 +23,8 @@ Future<void> main() async {
   final userBox = await Hive.openBox<UserModel>('userBox');
   await Hive.openBox<int>(StepCounterLocalDataSourceImpl.boxName);
 
+
+  await Geolocator.requestPermission();
 
   runApp(
     ProviderScope(
