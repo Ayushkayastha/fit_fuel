@@ -33,5 +33,14 @@ class Paths {
   static final RouteModel fooddetailpageRoute =
   RouteModel(routeName: 'fooddetailpage', path: '/fooddetailpage');
 
+  static final RouteModel loginPageRoute= RouteModel(
+    routeName: 'loginPageRoute',
+    path:'/loginPageRoute',
+  );
+  static final RouteModel signupPageRoute= RouteModel(
+    routeName: 'signupPageRoute',
+    path:'/signupPageRoute',
+  );
+
 
 }

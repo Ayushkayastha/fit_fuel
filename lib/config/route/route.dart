@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/presentation/login_page.dart';
+import '../../features/auth/presentation/signup_page.dart';
 import '../../features/meals/domain/food_args.dart';
 import '../../features/meals/presentation/afternoon_snack.dart';
 import '../../features/meals/presentation/breakfast.dart';
@@ -21,7 +23,7 @@ import '../error_screen.dart';
 class AppRouter {
   static final key = GlobalKey<NavigatorState>();
   static final router = GoRouter(
-    initialLocation: Paths.splashPageRoute.path,
+    initialLocation: Paths.loginPageRoute.path,
     navigatorKey: key,
     routes: [
       GoRoute(
@@ -106,6 +108,22 @@ class AppRouter {
             ),
           );
         },
+      ),
+      GoRoute(
+        path: Paths.loginPageRoute.path,
+        name: Paths.loginPageRoute.routeName,
+        pageBuilder: (context,state)=>FadeTransitionPage(
+          key: state.pageKey,
+          child: LoginPage(),
+        ),
+      ),
+      GoRoute(
+        path: Paths.signupPageRoute.path,
+        name: Paths.signupPageRoute.routeName,
+        pageBuilder: (context,state)=>FadeTransitionPage(
+          key: state.pageKey,
+          child: SignupPage(),
+        ),
       ),
 
     ],
