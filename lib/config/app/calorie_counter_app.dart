@@ -13,7 +13,7 @@ class CalorieCounterApp extends StatelessWidget {
       designSize: Size(440, 956),
       builder: (context,child)=>MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        themeMode: ThemeMode.system,
+        themeMode: ThemeMode.light,
         theme: AppTheme.getTheme(isDark: false ),
         darkTheme: AppTheme.getTheme(isDark: true),
         routerConfig: AppRouter.router,

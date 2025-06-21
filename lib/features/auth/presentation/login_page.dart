@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../config/app_assets/app_assets.dart';
+import '../../../core/storage/secure_storage_service.dart';
 import '../../../shared/components/custom_bottom_btn.dart';
 import '../data/models/login_request_model.dart';
 import '../data/repository/auth_repository_impl.dart';
@@ -131,12 +132,17 @@ class _LoginPageState extends State<LoginPage> {
                   name:'Sign In',
                   callBack: () async {
                     final useCase = LoginUserUseCase(AuthRepositoryImpl());
+                    final storage = SecureStorageService();
 
                     try {
                       final result = await useCase(LoginRequestModel(
                         email: _emailController.text.trim(),
                         password: _pwdController.text.trim(),
                       ));
+
+                      // ✅ Save token and userId
+                      await storage.saveAuthToken(result.token);
+                      await storage.saveUserId(result.userId);
 
                       if (!mounted) return;
 
@@ -147,7 +153,6 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       );
 
-                      // TODO: Save token to secure storage if needed
                       context.go(Paths.landingPageRoute.path);
                     } catch (e) {
                       if (!mounted) return;

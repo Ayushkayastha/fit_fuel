@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive/hive.dart';
 import '../../../../config/route/paths.dart';
+import '../../../core/storage/secure_storage_service.dart';
 import '../../onboarding/data/models/user_model.dart';
 
 class SplashPage extends StatefulWidget {
@@ -25,7 +26,14 @@ class _SplashPageState extends State<SplashPage> {
     final user = box.get('user');
 
     if (user != null) {
-      context.go(Paths.landingPageRoute.path);
+      final storage = SecureStorageService();
+      final token = await storage.getAuthToken();
+
+      if (token != null && mounted) {
+        context.go(Paths.landingPageRoute.path); // Already logged in
+      } else {
+        context.go(Paths.loginPageRoute.path); // Not logged in
+      }
     } else {
       context.go(Paths.onboardingaPageRoute.path);
     }

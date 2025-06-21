@@ -23,7 +23,7 @@ import '../error_screen.dart';
 class AppRouter {
   static final key = GlobalKey<NavigatorState>();
   static final router = GoRouter(
-    initialLocation: Paths.loginPageRoute.path,
+    initialLocation: Paths.splashPageRoute.path,
     navigatorKey: key,
     routes: [
       GoRoute(

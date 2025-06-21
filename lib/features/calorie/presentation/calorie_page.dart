@@ -1,10 +1,14 @@
 
+import 'package:fit_fuel/config/app_assets/calorie_page_asset.dart';
+import 'package:fit_fuel/config/extensions/context_extension.dart';
 import 'package:fit_fuel/config/route/route.dart';
 import 'package:fit_fuel/features/calorie/presentation/provider/date_provider.dart';
 import 'package:fit_fuel/features/calorie/presentation/provider/nutrition_summary_provider.dart';
 import 'package:fit_fuel/features/calorie/presentation/widget/dashboard_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
@@ -106,42 +110,102 @@ class CaloriePage extends ConsumerWidget {
                   onTap: (){
                     context.push(Paths.breakfastpageRoute.path);
                   },
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.black12
+                  child: SizedBox(
+                    height: 130.h,
+                    width: 130.w,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 100.w,
+                          height: 100.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100.r),
+                            color: context.colorScheme.primaryFixedDim
+                          ),
+                          child: Center(
+                            child: SvgPicture.asset(
+                              CaloriePageIcon.breakfast,
+                              height: 50.h,
+                              width: 50.w,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        Text(
+                            'Breakfast',
+                          style: context.textTheme.titleMedium,
+                        )
+                      ],
                     ),
-                    child: Center(child: Text('breakfast')),
                   ),
                 ),
                 InkWell(
                   onTap: (){
                     context.push(Paths.lunchpageRoute.path);
                   },
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.black12
+                  child: SizedBox(
+                    height: 130.h,
+                    width: 130.w,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 100.w,
+                          height: 100.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100.r),
+                              color: context.colorScheme.primaryFixedDim
+                          ),
+                          child: Center(
+                            child: SvgPicture.asset(
+                              CaloriePageIcon.lunch,
+                              height: 50.h,
+                              width: 50.w,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Lunch',
+                          style: context.textTheme.titleMedium,
+                        )
+                      ],
                     ),
-                    child: Center(child: Text('Lunch')),
                   ),
                 ),
                 InkWell(
                   onTap: (){
                     context.push(Paths.dinnerpageRoute.path);
                   },
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        color: Colors.black12
+                  child: SizedBox(
+                    height: 130.h,
+                    width: 130.w,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 100.w,
+                          height: 100.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100.r),
+                              color: context.colorScheme.primaryFixedDim
+                          ),
+                          child: Center(
+                            child: SvgPicture.asset(
+                              CaloriePageIcon.dinner,
+                              height: 50.h,
+                              width: 50.w,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Dinner',
+                          style: context.textTheme.titleMedium,
+                        )
+                      ],
                     ),
-                    child: Center(child: Text('Dinner')),
                   ),
                 ),
               ],
@@ -154,42 +218,114 @@ class CaloriePage extends ConsumerWidget {
                   onTap: (){
                     context.push(Paths.moriningsnackpageRoute.path);
                   },
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.black12
+                  child: SizedBox(
+                    height: 153.h,
+                    width: 130.w,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 100.w,
+                          height: 100.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100.r),
+                              color: context.colorScheme.primaryFixedDim
+                          ),
+                          child: Center(
+                            child: SvgPicture.asset(
+                              CaloriePageIcon.snacks,
+                              height: 50.h,
+                              width: 50.w,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Morning',
+                          style: context.textTheme.titleMedium,
+                        ),
+                        Text(
+                          'snack',
+                          style: context.textTheme.titleMedium,
+                        ),
+                      ],
                     ),
-                    child: Center(child: Text('Morning snack')),
                   ),
                 ),
                 InkWell(
                   onTap: (){
                     context.push(Paths.afternoonpageRoute.path);
                   },
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.black12
+                  child: SizedBox(
+                    height: 153.h,
+                    width: 130.w,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 100.w,
+                          height: 100.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100.r),
+                              color: context.colorScheme.primaryFixedDim
+                          ),
+                          child: Center(
+                            child: SvgPicture.asset(
+                              CaloriePageIcon.snacks,
+                              height: 50.h,
+                              width: 50.w,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Afternoon',
+                          style: context.textTheme.titleMedium,
+                        ),
+                        Text(
+                          'snack',
+                          style: context.textTheme.titleMedium,
+                        ),
+                      ],
                     ),
-                    child: Center(child: Text('afternoon snack')),
                   ),
                 ),
                 InkWell(
                   onTap: (){
                     context.push(Paths.eveningsnackpageRoute.path);
                   },
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        color: Colors.black12
+                  child: SizedBox(
+                    height: 153.h,
+                    width: 130.w,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 100.w,
+                          height: 100.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100.r),
+                              color: context.colorScheme.primaryFixedDim
+                          ),
+                          child: Center(
+                            child: SvgPicture.asset(
+                              CaloriePageIcon.snacks,
+                              height: 50.h,
+                              width: 50.w,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Evening',
+                          style: context.textTheme.titleMedium,
+                        ),
+                        Text(
+                          'snack',
+                          style: context.textTheme.titleMedium,
+                        ),
+                      ],
                     ),
-                    child: Center(child: Text('evening snack')),
                   ),
                 ),
               ],

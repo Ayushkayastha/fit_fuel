@@ -1,6 +1,8 @@
+import 'package:fit_fuel/config/extensions/context_extension.dart';
 import 'package:fit_fuel/config/route/paths.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../domain/entity/user_entity.dart';
@@ -33,11 +35,27 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
               controller: nameController,
               decoration: const InputDecoration(labelText: 'Name'),
             ),
+            SizedBox(height: 10.h,),
             TextField(
               controller: ageController,
               decoration: const InputDecoration(labelText: 'Age'),
               keyboardType: TextInputType.number,
             ),
+            SizedBox(height: 10.h,),
+            TextField(
+              controller: heightController,
+              decoration: const InputDecoration(labelText: 'height'),
+              keyboardType: TextInputType.number,
+            ),
+            SizedBox(height: 10.h,),
+
+            TextField(
+              controller: weightController,
+              decoration: const InputDecoration(labelText: 'weight'),
+              keyboardType: TextInputType.number,
+            ),
+            SizedBox(height: 10.h,),
+
             DropdownButton<String>(
               value: gender,
               items: ['Male', 'Female', 'Other']
@@ -45,17 +63,8 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                   .toList(),
               onChanged: (val) => setState(() => gender = val!),
             ),
-            TextField(
-              controller: heightController,
-              decoration: const InputDecoration(labelText: 'height'),
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: weightController,
-              decoration: const InputDecoration(labelText: 'weight'),
-              keyboardType: TextInputType.number,
-            ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20.h,),
+
             ElevatedButton(
               onPressed: () async {
                 final user = UserEntity(
@@ -66,7 +75,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                   weight: double.parse(weightController.text),
                 );
                 await ref.read(saveUserProvider)(user);
-               context.go(Paths.landingPageRoute.path);
+               context.go(Paths.loginPageRoute.path);
               },
               child: const Text('Continue'),
             ),
